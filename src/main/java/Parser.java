@@ -35,15 +35,9 @@ public class Parser {
                 continue;
             }
             if (line.startsWith("(")) {
-                StringBuilder builder = new StringBuilder();
-                for (int i = 1; i < line.length(); i++) {
-                    char c = line.charAt(i);
-                    if (c == ')') {
-                        break;
-                    }
-                    builder.append(c);
-                }
-                table.addSymbol(builder.toString(), n);
+                int endIdx = line.indexOf(")");
+                String label = line.substring(1, endIdx);
+                table.addSymbol(label, n);
                 continue;
             }
             n++;
@@ -58,12 +52,12 @@ public class Parser {
             if (line.isEmpty() || line.startsWith("//") || line.startsWith("(")) {
                 continue;
             }
+            String binary;
             if (line.startsWith("@")) {
-                String binary = handleVariables(line);
-                writer.println(binary);
-                continue;
+                binary = handleVariables(line);
+            } else {
+                binary = handleCommands(line);
             }
-            String binary = handleCommands(line);
             writer.println(binary);
         }
         writer.close();
