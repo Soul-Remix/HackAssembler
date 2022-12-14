@@ -37,7 +37,7 @@ public class SymbolTable {
         table.put(symbol,value);
     }
 
-    public int getSymbol(String symbol) {
+    public Integer getSymbol(String symbol) {
         return table.getOrDefault(symbol,null);
     }
 
@@ -45,7 +45,7 @@ public class SymbolTable {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         for (String key: table.keySet()) {
-            builder.append(key +" "+ table.get(key) + "\n");
+            builder.append(key).append(" ").append(table.get(key)).append("\n");
         }
         return builder.toString();
     }
