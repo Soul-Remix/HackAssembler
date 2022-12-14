@@ -40,4 +40,13 @@ public class SymbolTable {
     public int getSymbol(String symbol) {
         return table.getOrDefault(symbol,null);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (String key: table.keySet()) {
+            builder.append(key +" "+ table.get(key) + "\n");
+        }
+        return builder.toString();
+    }
 }
