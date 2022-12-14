@@ -101,10 +101,6 @@ public class Parser {
         String d = this.dest(str);
         String j = this.jump(str);
 
-        System.out.println(c);
-        System.out.println(d);
-        System.out.println(j);
-
         String cc = code.comp(c);
         String dd = code.dest(d);
         String jj = code.jump(j);

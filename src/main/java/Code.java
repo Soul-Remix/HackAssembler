@@ -1,9 +1,9 @@
 import java.util.HashMap;
 
 public class Code {
-    private HashMap<String,String> destTable;
-    private HashMap<String,String> compTable;
-    private HashMap<String,String> jumpTable;
+    private final HashMap<String,String> destTable;
+    private final HashMap<String,String> compTable;
+    private final HashMap<String,String> jumpTable;
     public Code() {
         // Initialize the hash maps
         destTable = new HashMap<>();
